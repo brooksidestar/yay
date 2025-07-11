@@ -1,14 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Page Title</title>
+  <title>Simple Click Game</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+    button { font-size: 20px; padding: 10px 20px; }
+    #score { font-size: 24px; margin: 20px; }
+  </style>
 </head>
 <body>
+  <h1>Click the Button to Score 5 Points!</h1>
+  <div id="score">Score: 0</div>
+  <button id="clickBtn">Click me!</button>
 
-<h1>This is a toyota</h1>
-<p>This is a subaru.</p>
+  <script>
+    let score = 0;
+    const scoreDiv = document.getElementById('score');
+    const btn = document.getElementById('clickBtn');
 
+    btn.addEventListener('click', () => {
+      score++;
+      if (score >= 5) {
+        scoreDiv.textContent = '🎉 You Win! 🎉';
+        btn.disabled = true;
+      } else {
+        scoreDiv.textContent = 'Score: ' + score;
+      }
+    });
+  </script>
 </body>
 </html>
-
-
